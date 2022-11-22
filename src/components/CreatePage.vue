@@ -90,7 +90,13 @@ export default {
         id: '',
         type: '',
         title:'',
-        options:[],
+        options:[
+          {
+            id: Date.now(),
+            score:'',
+            name: '',
+          }
+        ],
       }
     },
     cancel() {
@@ -101,7 +107,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="less" scoped>
 .warpper {
   display: flex;
   flex-direction: column;
@@ -133,5 +139,8 @@ export default {
  .add{
   width:100%;
   margin-top:10px;
+ }
+ /deep/ .el-form-item__label {
+  font-weight: 800;
  }
 </style>

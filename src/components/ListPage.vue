@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .top-filter{
   display: flex;
   justify-content: center;
@@ -97,5 +97,9 @@ export default {
 }
 .el-radio:last-child {
   margin-right: 32px!important;
+}
+/deep/ .el-radio {
+  display: block;
+  margin-bottom: 10px;
 }
 </style>
