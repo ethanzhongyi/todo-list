@@ -17,10 +17,12 @@
     <div class="content">
       <div v-for="(item,index) in list" :key="item.id || Date.now">
         <h3>{{index+1}}、{{item.type}}</h3>
-        <p>{{item.title}}</p>
-        <el-radio-group v-model="item.model" style="flex-direction: column;">
-          <el-radio :label="option.id" v-for="option in item.options" :key="option.id || Date.now">{{option.name}}</el-radio>
-        </el-radio-group>
+        <div class="content-block">
+          <p>{{item.title}}</p>
+          <el-radio-group v-model="item.model" style="flex-direction: column;">
+            <el-radio :label="option.id" v-for="option in item.options" :key="option.id || Date.now">{{option.name}}</el-radio>
+          </el-radio-group>
+        </div>
       </div>
     </div>
   </div>
@@ -48,20 +50,11 @@ export default {
     localList: {
       deep: true,
       immediate: true,
-      handler(v) {
+      handler() {
         this.list = this.localList
-        console.log('watch--', v)
       }
     }
   },
-  // created() {
-  //   let list = localStorage.getItem('topicList');
-  //   if(list) {
-  //     this.list = this.topicList = JSON.parse(list);
-  //   } else {
-  //     this.list = this.topicList = [];
-  //   } 
-  // },
   methods: {
     search() {
       if(!this.form.title.trim() && !this.form.type.trim()) { 
@@ -90,10 +83,15 @@ export default {
 }
 .input-con{
   display: flex;
-  width:180x;
+  width: 180x;
 }
 .content {
-  margin-left:20px;
+  &-block {
+    margin-left: 20px;
+    /deep/ .el-radio-group {
+      margin-left: 10px;
+    }
+  }
 }
 .el-radio:last-child {
   margin-right: 32px!important;

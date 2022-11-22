@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <CreatePage/>
+    <create-item />
   </div>
 </template>
 
 <script>
-import CreatePage from './components/CreatePage.vue'
+import CreateItem from './components/CreateItem.vue'
 
 export default {
   name: 'App',
   components: {
-    CreatePage
+    CreateItem
   }
 }
 </script>

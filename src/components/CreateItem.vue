@@ -3,13 +3,13 @@
     <div class="warpper-create">
       <el-form :model="form" label-width="120px" style="width: 900px">
         <el-form-item label="题目ID号">
-          <el-input v-model="form.id" />
+          <el-input v-model="form.id" placeholder="请输入题目ID号"/>
         </el-form-item>
         <el-form-item label="题目类型">
-          <el-input v-model="form.type" />
+          <el-input v-model="form.type" placeholder="请输入题目类型"/>
         </el-form-item>
         <el-form-item label="题目描述">
-          <el-input v-model="form.title" />
+          <el-input v-model="form.title" placeholder="请输入题目描述" type="textarea" :rows="2"/>
         </el-form-item>
         <el-form-item label="选型">
           <ul>
@@ -31,16 +31,16 @@
 
     <el-divider>以下是创建的题目</el-divider>
     <div class="warpper-list">
-      <list-page :localList="localList"/>
+      <item-list :localList="localList"/>
     </div>
   </div>
 </template>
 
 <script>
-import ListPage from './ListPage.vue';
+import ItemList from './ItemList.vue';
 
 export default {
-  components: { ListPage },
+  components: { ItemList },
   data () {
     return {
       form: {
@@ -100,7 +100,6 @@ export default {
       }
     },
     cancel() {
-      // router.push('/list')
     }
   }
 }
@@ -113,7 +112,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding:  30px 20px;
 }
 .warpper-list {
   margin: 20px 0;
